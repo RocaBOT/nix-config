@@ -126,7 +126,6 @@ Please do yourself a favor and
 - Contact us on [Discord](https://discord.gg/XhZmNTnhtp) as well, for a potentially
   faster response.
 
-- Don't forget to checkout the [FAQ](https://zaney.org/wiki/zaneyos-2.3/faq)
 
 # Hyprland Keybindings
 
