@@ -47,7 +47,6 @@ Incluye el fondo de pantalla, scripts, aplicaciones, archivos de configuración 
 - Guía para Principiantes de Nix: [English](cheatsheets/nix-beginner-guide.md) | [Español](cheatsheets/nix-beginner-guide.es.md)
 - Guía de Personalización de Hyprland: [English](cheatsheets/hyprland-customization-guide.md) | [Español](cheatsheets/hyprland-customization-guide.es.md)
 
-
 #### 🍖 Requisitos
 
 - Debes estar ejecutando NixOS, versión 23.11+.
@@ -83,8 +82,6 @@ Incluye el fondo de pantalla, scripts, aplicaciones, archivos de configuración 
 - Muchas personas pacientes y con ganas de ayudar te apoyan usando ZaneyOS.
 - No dudes en pasar por el Discord para pedir ayuda.
 
-
-
 #### 📦 ¿Cómo instalo paquetes?
 
 - Puedes buscar en [Nix Packages](https://search.nixos.org/packages?) y
@@ -99,7 +96,6 @@ Incluye el fondo de pantalla, scripts, aplicaciones, archivos de configuración 
 - Siéntete libre de abrir un issue en el repo. Por favor etiqueta las solicitudes
   de funcionalidades comenzando el título con [feature request], ¡gracias!
 - Contáctanos también en [Discord](https://discord.gg/XhZmNTnhtp) para una respuesta potencialmente más rápida.
-
 
 # Atajos de Hyprland
 
@@ -228,7 +224,7 @@ Luego:
 ![Comando del script de instalación de ZaneyOS](img/install-script.jpg)
 
 ```
-sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.5.9/install-zaneyos.sh)
+sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)
 ```
 
 #### El proceso de instalación se verá así:
@@ -259,7 +255,7 @@ nix-shell -p git vim
 2. Clona este repo y entra:
 
 ```
-cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.5.9 --depth=1 ~/zaneyos
+cd && git clone https://gitlab.com/zaney/zaneyos.git -b main --depth=1 ~/zaneyos
 cd zaneyos
 
 También puedes ejecutar el script `install.sh` si quieres.

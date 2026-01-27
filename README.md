@@ -55,8 +55,6 @@ This includes the wallpaper, scripts, applications, config files, and more.
   [English](cheatsheets/hyprland-customization-guide.md) |
   [Español](cheatsheets/hyprland-customization-guide.es.md)
 
- 
-
 #### 🍖 Requirements
 
 - You must be running on NixOS, version 24.05+.
@@ -96,7 +94,6 @@ This includes the wallpaper, scripts, applications, config files, and more.
   running ZaneyOS.
 - Feel free to reach out on the Discord for any help with anything.
 
-
 #### 📦 How To Install Packages?
 
 - You can search the [Nix Packages](https://search.nixos.org/packages?) &
@@ -113,7 +110,6 @@ This includes the wallpaper, scripts, applications, config files, and more.
   with the title beginning with [feature request], thank you!
 - Contact us on [Discord](https://discord.gg/XhZmNTnhtp) as well, for a potentially
   faster response.
-
 
 # Hyprland Keybindings
 
@@ -249,7 +245,7 @@ Then:
 ![ZaneyOS Install Script Command](img/install-script.jpg)
 
 ```
-sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/stable-2.5.9/install-zaneyos.sh)
+sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)
 ```
 
 #### The install process will look something like this:
@@ -280,7 +276,7 @@ nix-shell -p git vim
 2. Clone this repo & enter it:
 
 ```
-cd && git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.5.9 --depth=1 ~/zaneyos
+cd && git clone https://gitlab.com/zaney/zaneyos.git -b main --depth=1 ~/zaneyos
 cd zaneyos
 
 You can still run the `install.sh` script if you want to.
@@ -296,15 +292,18 @@ git add .
 ```
 
 4. Edit `hosts/<your-desired-hostname>/variab
-nixos-generate-config --show-hardware-config > hosts/<your-desired-hostname>/hardware.nix
+   nixos-generate-config --show-hardware-config > hosts/<your-desired-hostname>/hardware.nix
+
 ```
 
 7. Run this to enable flakes and install the flake replacing hostname with
    profile. I.e. `intel`, `nvidia`, `nvidia-laptop`, `amd-hybrid`, or `vm`
 
 ```
+
 NIX_CONFIG="experimental-features = nix-command flakes"
 sudo nixos-rebuild switch --flake .#profile
+
 ```
 
 Now when you want to rebuild the configuration you have access to an alias
@@ -322,3 +321,4 @@ Thank you for all your assistance
 - Jerry Starke https://github.com/JerrySM64
 
 ## Hope you enjoy!
+```
