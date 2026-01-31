@@ -4,6 +4,7 @@
     (vars)
     barChoice
     browser
+    emailClient
     terminal
     ;
   # Noctalia-specific bindings (only included when barChoice == "noctalia")
@@ -60,6 +61,7 @@ in {
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
         "$modifier,W, Web Browser, exec, ${browser}"
+        "$modifier,B, Email Client, exec, ${emailClient}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"
         "$modifier,E, Emoji Picker, exec, emopicker9000"
         "$modifier,S, Screenshot, exec, screenshootin"

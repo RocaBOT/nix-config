@@ -22,16 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Google Antigravity (IDE)
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake/beta";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     alejandra = {
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,9 +37,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "zaneyos-24-vm";
-    profile = "vm";
-    username = "dwilliams";
+    host = "berselios";
+    profile = "intel";
+    username = "homura";
 
     # Deduplicate nixosConfigurations while preserving the top-level 'profile'
     mkNixosConfig = gpuProfile:
@@ -62,7 +52,6 @@
           inherit profile; # keep using the let-bound profile for modules/scripts
         };
         modules = [
-          ./modules/core/overlays.nix
           ./profiles/${gpuProfile}
           nix-flatpak.nixosModules.nix-flatpak
         ];

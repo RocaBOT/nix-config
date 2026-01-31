@@ -1,7 +1,9 @@
 English | [Español](./hyprland.binds.cheatsheet.es.md)
 
 # Hyprland Keybindings — ZaneyOS
+
 ## 🗝️ Conventions
+
 - SUPERKEY = Mod key (Hyprland `$modifier`)
 - SHIFT, CTRL, ALT used as shown
 - Arrows and hjkl are both supported for movement
@@ -9,6 +11,7 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 ---
 
 ## 🚀 Launchers & Overview
+
 - SUPERKEY+CTRL+D — Toggle Dock
 - ALT+Space — Workspace Overview
 - SUPERKEY+A — App Overview
@@ -16,26 +19,29 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 - SUPERKEY+D — Rofi Menu
 
 ## 🖥️ Terminals
+
 - SUPERKEY+Return — Terminal
 - SUPERKEY+SHIFT+Return — Foot Terminal (Floating)
-- SUPERKEY+ALT+Return — WezTerm
-- SUPERKEY+CTRL+Return — Ghostty
 - SUPERKEY+SHIFT+T — Scratchpad Terminal
 
 ## ✍️ Editors & IDEs
+
 - ALT+E — Emacs Floating
 - SUPERKEY+E — Emacs
 - SUPERKEY+G — VS Code
 
 ## 🌐 Web & Communication
+
 - SUPERKEY+W — Web Browser
 - SUPERKEY+ALT+D — Discord Canary
 
 ## 📁 File Management
+
 - SUPERKEY+T — Thunar
 - SUPERKEY+Y — Yazi
 
 ## 🛠️ System Utilities
+
 - SUPERKEY+V — Clipboard History
 - SUPERKEY+N — Create Note From Clipboard
 - SUPERKEY+C — Color Picker
@@ -47,6 +53,7 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 - SUPERKEY+SHIFT+E — Emoji Picker
 
 ## ⚙️ Settings & System
+
 - SUPERKEY+ALT+S — Settings Dialog
 - SUPERKEY+SHIFT+N — Notifications Reset
 - SUPERKEY+SHIFT+P — Power Menu
@@ -55,11 +62,13 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 - ALT+SHIFT+Q — Logout Menu
 
 ## 📖 Docs & Help
+
 - SUPERKEY+SHIFT+K — Keybinds Help
 - SUPERKEY+SHIFT+C — Cheatsheets
 - SUPERKEY+SHIFT+D — Docs
 
 ## 🪟 Window Management
+
 - SUPERKEY+SHIFT+G — Smart Gaps Toggle
 - SUPERKEY+Q — Kill Active Window
 - SUPERKEY+F — Toggle Fullscreen
@@ -72,28 +81,34 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 - SUPERKEY+SHIFT+I — Toggle Split
 
 ### Move Window
+
 - SUPERKEY+SHIFT+Left/Right/Up/Down — Move Window Left/Right/Up/Down
 - SUPERKEY+SHIFT+H/J/K/L — Move Window Left/Right/Up/Down
 
 ### Swap Window
+
 - SUPERKEY+ALT+Left/Right/Up/Down — Swap Window Left/Right/Up/Down
 - SUPERKEY+ALT+43/46/45/44 — Swap Window Left/Right/Up/Down
 
 ### Focus Movement
+
 - SUPERKEY+Left/Right/Up/Down — Focus Left/Right/Up/Down
 - SUPERKEY+H/J/K/L — Focus Left/Right/Up/Down
 
 ### Window Cycling
+
 - ALT+Tab — Cycle Next Window
 - ALT+Tab — Bring Active To Top
 
 ## 🗂️ Workspaces
+
 - SUPERKEY+1..9,0 — Workspace 1..10
 - SUPERKEY+SHIFT+1..9,0 — Move To Workspace 1..10
 - SUPERKEY+CTRL+Right/Left — Next/Previous Workspace
 - SUPERKEY+Mouse Wheel Down/Up — Next/Previous Workspace
 
 ## 🔊 Media & Brightness
+
 - XF86AudioRaiseVolume — Volume Up
 - XF86AudioLowerVolume — Volume Down
 - XF86AudioMute — Mute Toggle
@@ -102,6 +117,6 @@ English | [Español](./hyprland.binds.cheatsheet.es.md)
 - XF86MonBrightnessDown/Up — Brightness Down/Up
 
 ## 🖱️ Mouse Bindings
+
 - SUPERKEY + Left Mouse — Move window
 - SUPERKEY + Right Mouse — Resize window
-

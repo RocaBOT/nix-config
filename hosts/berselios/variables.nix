@@ -1,33 +1,25 @@
 {
   # Git Configuration ( For Pulling Software Repos )
-  gitUsername = "Don Williams";
-  gitEmail = "don.e.williams@gmail.com";
+  gitUsername = "RocaBOT";
+  gitEmail = "rocabot@datarac.es";
 
   # Set Displau Manager
   # `tui` for Text login
-  # `sddm` for graphical GUI
+  # `sddm` for graphical GUI (default)
   # SDDM background is set with stylixImage
   displayManager = "sddm";
 
-  # Emable/disable bundled applications
-  tmuxEnable = true;
-  alacrittyEnable = true;
-  weztermEnable = true;
-  ghosttyEnable = true;
-  vscodeEnable = true;
-  antigravityEnable = false; # Google port of vscodium
-  helixEnable = true;
-  #To install rebuild, then run zcli doom install
-  doomEmacsEnable = false;
-
-  # Python development tools
-  pythonEnable = false;
-
-  # P10K or starship prompt
-  userPrompt = "starship";
+  # Python development tools are included by default
 
   # Hyprland Settings
-  extraMonitorSettings = "monitor=Virtual-1,1920x1080@75,auto,1";
+  # Examples:
+  # extraMonitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
+  # extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
+  # You can configure multiple monitors.
+  # Inside the quotes, create a new line for each monitor.
+  extraMonitorSettings = "
+    monitor = HDMI-A-1, preferred, auto, 1, mirror, eDP-1
+    ";
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
@@ -37,27 +29,18 @@
   clock24h = false;
 
   # Program Options
-  browser = "brave"; # Set Default Browser (google-chrome-stable for google-chrome)
-
-  # Host-level default applications (picked up by Home Manager xdg.mimeApps)
-  # Uncomment and adjust the .desktop IDs to set per-host defaults.
-  # mimeDefaultApps = {
-  #   # PDFs
-  #   "application/pdf" = ["okular.desktop"];
-  #   "application/x-pdf" = ["okular.desktop"];
-  #   # Web browser
-  #   "x-scheme-handler/http"  = ["google-chrome.desktop"];  # or brave-browser.desktop, firefox.desktop
-  #   "x-scheme-handler/https" = ["google-chrome.desktop"];
-  #   "text/html"              = ["google-chrome.desktop"];
-  #   # Files
-  #   "inode/directory" = ["thunar.desktop"];      # file manager
-  #   "text/plain"      = ["nvim.desktop"];        # or code.desktop
-  # };
+  # Set Default Browser (google-chrome-stable for google-chrome)
+  # This does NOT install your browser
+  # You need to install it by adding it to the `packages.nix`
+  # or as a flatpak
+  browser = "io.gitlab.librewolf-community";
+  emailClient = "eu.betterbird.Betterbird";
 
   terminal = "kitty"; # Set Default System Terminal
-  keyboardLayout = "us";
-  keyboardVariant = "";
-  consoleKeyMap = "us";
+
+  keyboardLayout = "gb";
+  keyboardVariant = "intl";
+  consoleKeyMap = "uk";
 
   # For hybrid support (Intel/NVIDIA Prime or AMD/NVIDIA)
   intelID = "PCI:1:0:0";
@@ -71,7 +54,12 @@
   printEnable = false;
 
   # Enable Thunar GUI File Manager
+  # Yazi is default File Manager
   thunarEnable = true;
+
+  # Themes, waybar and animation.
+  #  Only uncomment your selection
+  # The others much be commented out.
 
   # Set Stylix Image
   # This will set your color palette
@@ -82,18 +70,19 @@
   #stylixImage = ../../wallpapers/Anime-Purple-eyes.png;
   #stylixImage = ../../wallpapers/Rainnight.jpg;
   #stylixImage = ../../wallpapers/zaney-wallpaper.jpg;
-  #stylixImage = ../../wallpapers/nix-wallpapers-strips-logo.jpg;
+  #stylixImage = ../../wallpapers/nix-wallpaper-stripes-logo.png;
   #stylixImage = ../../wallpapers/beautifulmountainscape.jpg;
 
   # Set Waybar
-  # Available options:
-  waybarChoice = ../../modules/home/waybar/waybar-dwm-2.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
-  #waybarChoice = ../../modules/home/waybar/waybar-jerry.nix;
+  #  Available Options:
+  waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-ddubs.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-ddubs-2.nix;
+  #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-dwm.nix;
+  #waybarChoice = ../../modules/home/waybar/waybar-dwm-2.nix;
+  #waybarChoice = ../../modules/home/waybar/waybar-nekodyke.nix;
+  #waybarChoice = ../../modules/home/waybar/waybar-jerry.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-TheBlackDon.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-tony.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-ddubsos-v1.nix;
@@ -110,8 +99,8 @@
 
   # Set Animation style
   # Available options are:
-  animChoice = ../../modules/home/hyprland/animations-end4.nix;
-  #animChoice = ../../modules/home/hyprland/animations-def.nix;
+  animChoice = ../../modules/home/hyprland/animations-def.nix;
+  #animChoice = ../../modules/home/hyprland/animations-end4.nix;
   #animChoice = ../../modules/home/hyprland/animations-end4-slide.nix;
   #animChoice = ../../modules/home/hyprland/animations-end-slide.nix;
   #animChoice = ../../modules/home/hyprland/animations-dynamic.nix;

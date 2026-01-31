@@ -19,20 +19,20 @@
     else v;
 
   # If layout itself is a US variant (e.g., "dvorak", "us-intl"), normalize it
-  layoutFromLayout =
-    if builtins.elem keyboardLayout usVariants
-    then "us"
-    else keyboardLayout;
+  layoutFromLayout = keyboardLayout;
+  #  if builtins.elem keyboardLayout usVariants
+  #  then "us"
+  #  else keyboardLayout;
   variantFromLayout =
     if builtins.elem keyboardLayout usVariants
     then normalizeUSVariant keyboardLayout
     else "";
 
   # If the provided variant is a US variant, force layout to us; otherwise keep layout
-  layoutFromVariant =
-    if builtins.elem keyboardVariant usVariants
-    then "us"
-    else layoutFromLayout;
+  layoutFromVariant = layoutFromLayout;
+  #  if builtins.elem keyboardVariant usVariants
+  #  then "us"
+  #  else layoutFromLayout;
   variantFinal =
     if builtins.elem keyboardVariant usVariants
     then normalizeUSVariant keyboardVariant
@@ -194,8 +194,7 @@ in {
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
-      monitor=Virtual-1,1920x1080@60,auto,1
+      monitor=eDP-1,1920x1080@60,auto,1
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       # Thanks to SchotjeChrisman
