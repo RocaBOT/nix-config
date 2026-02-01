@@ -21,6 +21,7 @@
       "$modifier,X, Noctalia Power Menu, exec,  noctalia-shell ipc call sessionMenu toggle"
       "$modifier,C, Noctalia Control Center, exec,  noctalia-shell ipc call controlCenter toggle"
       "$modifier CTRL,R, Noctalia Screen Recorder, exec,  noctalia-shell ipc call screenRecorder toggle"
+      "$modifier SHIFT,R, Restart Noctalia shell, exec,  restart.noctalia"
     ]
     else [];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
@@ -53,7 +54,7 @@ in {
         # ============= APPLICATION LAUNCHERS =============
         "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
         "$modifier CTRL,C, Cheatsheets Viewer, exec, qs-cheatsheets"
-        "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
+        "$modifier SHIFT,K, Keybinds Search Tool, exec, qs-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier ALT,W, Web Search, exec, web-search"
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
