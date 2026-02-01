@@ -7,6 +7,13 @@
 
 # 🚀 **Current Release - ZaneyOS v2.6.0**
 
+#### 📅 **Updated: January 31st, 2026**
+
+- Changed default login manager to `TUI`
+  - Issues recently (again) with SDDM and some GPUs
+  - Often related to SDDM wayland support option
+    - Some GPUs need it enabled, others disabled
+
 #### 📅 **Updated: January 28th, 2026**
 
 - Disabled gnome in stylix. Caused install failure
