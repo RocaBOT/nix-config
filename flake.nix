@@ -26,6 +26,16 @@
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cc3dsfs = {
+      url = "github:RocaBOT/cc3dsfs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #librepods = {
+    #  url = "github:/librepods";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = {

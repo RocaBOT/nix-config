@@ -1,4 +1,9 @@
-{pkgs, host, lib, ...}: let
+{
+  pkgs,
+  host,
+  lib,
+  ...
+}: let
   vars = import ../../hosts/${host}/variables.nix;
 in {
   xdg = {
@@ -41,5 +46,6 @@ in {
       extraPortals = [pkgs.xdg-desktop-portal-hyprland];
       configPackages = [pkgs.hyprland];
     };
+    userDirs.enable = true;
   };
 }
