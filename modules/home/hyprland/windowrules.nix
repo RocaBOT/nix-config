@@ -81,6 +81,7 @@ in {
         "float, initialTitle:(Add Folder to Workspace)"
         "float, initialTitle:(Open Files)"
         "float, initialTitle:(wants to save)"
+        "float, class:^(cc3dsfs)$"
         "size 70% 60%, initialTitle:(Open Files)"
         "size 70% 60%, initialTitle:(Add Folder to Workspace)"
         "size 70% 70%, tag:settings*"
