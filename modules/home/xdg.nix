@@ -47,5 +47,13 @@ in {
       configPackages = [pkgs.hyprland];
     };
     userDirs.enable = true;
+    desktopEntries = {
+      librepods = {
+        name = "LibrePods";
+        genericName = "Audio Device";
+        exec = "librepods";
+        terminal = false;
+      };
+    };
   };
 }

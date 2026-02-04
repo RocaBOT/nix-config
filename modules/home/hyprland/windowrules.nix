@@ -83,6 +83,7 @@ in {
         "float on, match:initial_title (wants to save)"
         "float on, match:class cc3dsfs.*"
         "center on, match:class cc3dsfs.*"
+        "float on, match:initial_title ^(LibrePods)$"
         "size 70% 60%, match:initial_title (Open Files)"
         "size 70% 60%, match:initial_title (Add Folder to Workspace)"
         "size 70% 70%, match:tag settings*"
