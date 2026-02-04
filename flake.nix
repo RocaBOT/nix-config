@@ -10,6 +10,7 @@
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+    #custom-udev-rules.url = "github:MalteT/custom-udev-rules";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -32,10 +33,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #librepods = {
-    #  url = "github:/librepods";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    librepods = {
+      url = "github:kavishdevar/librepods/linux/rust";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -44,6 +45,8 @@
     nixvim,
     nix-flatpak,
     alejandra,
+    cc3dsfs,
+    librepods,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -64,6 +67,11 @@
         modules = [
           ./profiles/${gpuProfile}
           nix-flatpak.nixosModules.nix-flatpak
+          ({pkgs, ...}: {
+            nixpkgs.overlays = [
+              cc3dsfs.overlays.default
+            ];
+          })
         ];
       };
   in {
