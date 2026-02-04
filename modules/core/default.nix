@@ -36,5 +36,6 @@ in {
     ./cachix.nix
     inputs.stylix.nixosModules.stylix
     ./cc3dsfs.nix
+    ./librepods.nix
   ];
 }

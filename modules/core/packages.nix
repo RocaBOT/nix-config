@@ -21,7 +21,6 @@ in {
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = false; # Firefox is not installed by default
     hyprland = {
       enable = true; # set this so desktop file is created
       withUWSM = false;
@@ -30,7 +29,6 @@ in {
     seahorse.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
-    adb.enable = true;
     hyprlock.enable = true;
     gnupg.agent = {
       enable = true;
@@ -44,6 +42,7 @@ in {
     noctaliaPkgs
     ++ [
       alejandra # nix formatter
+      android-tools # adb command and tools
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
@@ -74,7 +73,7 @@ in {
       mdcat # CLI markdown parser
       mpv # Incredible Video Player
       ncdu # Disk Usage Analyzer With Ncurses Interface
-      nixfmt-rfc-style # Nix Formatter
+      nixfmt # Nix Formatter
       nwg-displays # configure monitor configs via GUI
       nwg-drawer # Application launcher for wayland
       nwg-dock-hyprland # Dock for hyprland
@@ -91,6 +90,8 @@ in {
       rhythmbox # audio player
       ripgrep # Improved Grep
       socat # Needed For Screenshots
+      thunar-archive-plugin # open archives in Thunar
+      thunar-volman # Volume manager for Thunar
       unrar # Tool For Handling .rar Files
       unzip # Tool For Handling .zip Files
       usbutils # Good Tools For USB Devices

@@ -3,14 +3,13 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf.url = "github:notashelf/nvf";
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:nix-community/stylix";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
-    #custom-udev-rules.url = "github:MalteT/custom-udev-rules";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -19,7 +18,7 @@
 
     # Checking nixvim to see if it's better
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

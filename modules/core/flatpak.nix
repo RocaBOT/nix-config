@@ -28,7 +28,7 @@
         "io.github.randovania.Randovania" # Randomizer for metroid games, amongst others
       ];
 
-      # Optional: Automatically update Flatpaks when you run nixos-rebuild swit ch
+      # Optional: Automatically update Flatpaks when you run nixos-rebuild switch
       update.onActivation = true;
     };
   };
