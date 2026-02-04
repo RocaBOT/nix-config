@@ -45,8 +45,6 @@
     nixvim,
     nix-flatpak,
     alejandra,
-    cc3dsfs,
-    librepods,
     ...
   } @ inputs: let
     system = "x86_64-linux";
