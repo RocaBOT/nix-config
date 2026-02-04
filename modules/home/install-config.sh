@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 ######################################
-# Install script for zaneyos  
-# Author:  Don Williams 
-# Date: June 27, 2005 
+# Install script for my nix config
+# (based on zaneyos)
+# Original Author:  Don Williams
+# Original Date: June 27, 2005
 #######################################
 
 # Define colors
@@ -33,7 +34,7 @@ print_error() {
 # Function to print a success banner
 print_success_banner() {
   echo -e "${GREEN}╔═══════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${GREEN}║                 zaneyos Installation Successful!                      ║${NC}"
+  echo -e "${GREEN}║                  config Installation Successful!                      ║${NC}"
   echo -e "${GREEN}║                                                                       ║${NC}"
   echo -e "${GREEN}║   Please reboot your system for changes to take full effect.          ║${NC}"
   echo -e "${GREEN}║                                                                       ║${NC}"
@@ -43,7 +44,7 @@ print_success_banner() {
 # Function to print a failure banner
 print_failure_banner() {
   echo -e "${RED}╔═══════════════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${RED}║                 zaneyos Installation Failed!                          ║${NC}"
+  echo -e "${RED}║                  config Installation Failed!                          ║${NC}"
   echo -e "${RED}║                                                                       ║${NC}"
   echo -e "${RED}║   Please review the log file for details:                             ║${NC}"
   echo -e "${RED}║   ${LOG_FILE}                                                        ║${NC}"
@@ -54,7 +55,7 @@ print_failure_banner() {
 print_header "Verifying System Requirements"
 
 # Check for git
-if ! command -v git &> /dev/null; then
+if ! command -v git &>/dev/null; then
   print_error "Git is not installed."
   echo -e "Please install git and pciutils are installed, then re-run the install script."
   echo -e "Example: nix-shell -p git pciutils"
@@ -62,14 +63,14 @@ if ! command -v git &> /dev/null; then
 fi
 
 # Check for lspci (pciutils)
-if ! command -v lspci &> /dev/null; then
+if ! command -v lspci &>/dev/null; then
   print_error "pciutils is not installed."
   echo -e "Please install git and pciutils,  then re-run the install script."
   echo -e "Example: nix-shell -p git pciutils"
   exit 1
 fi
 
-if [ -n "$(grep -i nixos < /etc/os-release)" ]; then
+if [ -n "$(grep -i nixos </etc/os-release)" ]; then
   echo -e "${GREEN}Verified this is NixOS.${NC}"
 else
   print_error "This is not NixOS or the distribution information is not available."
@@ -145,36 +146,36 @@ fi
 # If profile is still empty (either not detected or not confirmed), prompt manually
 if [ -z "$profile" ]; then
   echo -e "${RED}Automatic GPU detection failed or no specific profile found.${NC}"
-read -rp "Enter Your Hardware Profile (GPU)\nOptions:\n[ amd ]\nnvidia\nnvidia-laptop\namd-hybrid\nintel\nvm\nPlease type out your choice: " profile
+  read -rp "Enter Your Hardware Profile (GPU)\nOptions:\n[ amd ]\nnvidia\nnvidia-laptop\namd-hybrid\nintel\nvm\nPlease type out your choice: " profile
   if [ -z "$profile" ]; then
     profile="amd"
   fi
   echo -e "${GREEN}Selected GPU profile: $profile${NC}"
 fi
 
-print_header "Backup Existing zaneyos (if any)"
+print_header "Backup Existing config (if any)"
 
 backupname=$(date +"%Y-%m-%d-%H-%M-%S")
-if [ -d "zaneyos" ]; then
-  echo -e "${GREEN}zaneyos exists, backing up to .config/zaneyos-backups folder.${NC}"
-  if [ -d ".config/zaneyos-backups" ]; then
-    echo -e "${GREEN}Moving current version of zaneyos to backups folder.${NC}"
-    mv "$HOME"/zaneyos .config/zaneyos-backups/"$backupname"
+if [ -d "nix-config" ]; then
+  echo -e "${GREEN}A config exists, backing up to .config/nix-config-backups folder.${NC}"
+  if [ -d ".config/nix-config-backups" ]; then
+    echo -e "${GREEN}Moving current version of the config to backups folder.${NC}"
+    mv "$HOME"/nix-config .config/nix-config-backups/"$backupname"
     sleep 1
   else
-    echo -e "${GREEN}Creating the backups folder & moving zaneyos to it.${NC}"
-    mkdir -p .config/zaneyos-backups
-    mv "$HOME"/zaneyos .config/zaneyos-backups/"$backupname"
+    echo -e "${GREEN}Creating the backups folder & moving current config to it.${NC}"
+    mkdir -p .config/nix-config-backups
+    mv "$HOME"/nix-config .config/nix-config-backups/"$backupname"
     sleep 1
   fi
 else
-  echo -e "${GREEN}Thank you for choosing zaneyos.${NC}"
+  echo -e "${GREEN}Based on ZaneyOS configs.${NC}"
   echo -e "${GREEN}I hope you find your time here enjoyable!${NC}"
 fi
 
-print_header "Cloning zaneyos Repository"
-git clone https://gitlab.com/dwilliam62/zaneyos.git --depth=1  ~/zaneyos
-cd ~/zaneyos || exit 1
+print_header "Cloning the configs Repository"
+git clone https://github.com/RocaBOT/nix-config.git --depth=1 ~/nix-config
+cd ~/nix-config || exit 1
 
 print_header "Configuring Host and Profile"
 mkdir -p hosts/"$hostName"
@@ -208,7 +209,7 @@ print_header "Username Configuration"
 sed -i "/^[[:space:]]*username[[:space:]]*=[[:space:]]*\"/ s/\"[^\"]*\"/\"$installusername\"/" ./flake.nix
 
 print_header "Generating Hardware Configuration -- Ignore ERROR: cannot access /bin"
-sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
+sudo nixos-generate-config --show-hardware-config >./hosts/$hostName/hardware.nix
 
 print_header "Setting Nix Configuration"
 NIX_CONFIG="experimental-features = nix-command flakes"
@@ -217,11 +218,11 @@ print_header "Initiating NixOS Build"
 read -p "Ready to run initial build? (Y/N): " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo -e "${RED}Build cancelled.${NC}"
-    exit 1
+  echo -e "${RED}Build cancelled.${NC}"
+  exit 1
 fi
 
-sudo nixos-rebuild boot --flake ~/zaneyos/#${profile}
+sudo nixos-rebuild boot --flake ~/nix-config/#${profile}
 
 # Check the exit status of the last command (nixos-rebuild)
 if [ $? -eq 0 ]; then

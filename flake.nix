@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "Homuraś config - based on ZaneyOS";
 
   inputs = {
     home-manager = {
