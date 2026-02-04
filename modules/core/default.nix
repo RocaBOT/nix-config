@@ -36,6 +36,4 @@ in {
     ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];
-
-  config = {services.udev.packages = [inputs.cc3dsfs.packages.x86_64-linux.default];};
 }

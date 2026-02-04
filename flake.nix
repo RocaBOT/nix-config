@@ -67,11 +67,6 @@
         modules = [
           ./profiles/${gpuProfile}
           nix-flatpak.nixosModules.nix-flatpak
-          ({pkgs, ...}: {
-            nixpkgs.overlays = [
-              cc3dsfs.overlays.default
-            ];
-          })
         ];
       };
   in {
