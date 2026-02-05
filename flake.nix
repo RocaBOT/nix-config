@@ -47,8 +47,8 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "berselios";
-    profile = "intel";
+    host = "merihim";
+    profile = "amd";
     username = "homura";
 
     # Deduplicate nixosConfigurations while preserving the top-level 'profile'
