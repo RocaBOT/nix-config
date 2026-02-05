@@ -26,6 +26,7 @@
         "io.freetubeapp.FreeTube" # FreeTube youtube frontend
         "com.vysp3r.ProtonPlus" # Wine/Proton variants manager
         "io.github.randovania.Randovania" # Randomizer for metroid games, amongst others
+        "com.discordapp.Discord" # official Discord client
       ];
 
       # Optional: Automatically update Flatpaks when you run nixos-rebuild switch
