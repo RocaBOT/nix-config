@@ -97,11 +97,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771602101,
-        "narHash": "sha256-RiqcDDJuekMlW9md1BmNIYD/EJ8Qv8PfiSZmK0qCvvw=",
+        "lastModified": 1771604744,
+        "narHash": "sha256-uJG+7AK0zWDLk8YLDssO7Gxlt/V185kb3wrmXJmddS8=",
         "owner": "RocaBOT",
         "repo": "cc3dsfs",
-        "rev": "21e7bde57ac12a6c6bb8f467d9f76c1ece9a38d1",
+        "rev": "7464555400af467c7d302c7caef2b9aab95a7df5",
         "type": "github"
       },
       "original": {
@@ -357,15 +357,15 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1770693543,
-        "narHash": "sha256-QxyToFpzfQJlUgrMTWMJuMColoNdsGV4/YLXqBOBBwE=",
-        "owner": "kavishdevar",
+        "lastModified": 1771604931,
+        "narHash": "sha256-ZQr4JuIQD5RBJ16fdDE+k0INLCU4vu7lP7dmTx6rV8Y=",
+        "owner": "RocaBOT",
         "repo": "librepods",
-        "rev": "decf070f9f512f5369ef30083915462a702671b5",
+        "rev": "1c0d085153c3b946c4415cb1f4332f97fafee6bd",
         "type": "github"
       },
       "original": {
-        "owner": "kavishdevar",
+        "owner": "RocaBOT",
         "ref": "linux/rust",
         "repo": "librepods",
         "type": "github"
