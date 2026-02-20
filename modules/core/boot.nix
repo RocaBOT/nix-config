@@ -5,7 +5,7 @@
 }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = ["v4l2loopback"];
+    kernelModules = ["v4l2loopback" "ntsync"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
     loader.systemd-boot.enable = true;

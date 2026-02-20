@@ -32,6 +32,70 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+      extraConfig.pipewire-pulse."60-echo-cancel" = {
+        context.modules = [
+          {
+            name = "libpipewire-module-echo-cancel";
+            args = {
+              monitor.mode = true;
+              capture.props = {
+                node.passive = true;
+              };
+              source.props = {
+                node.name = "virtual_mic";
+                node.description = "Echo-cancelled source";
+              };
+              aec.args = {
+                webrtc.extended_filter = false;
+              };
+            };
+          }
+        ];
+      };
+      extraConfig.pipewire."91-null-sinks" = {
+        "context.objects" = [
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "Simult. Output";
+              "node.description" = "Passthrough to all output devices";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "FL,FR";
+            };
+          }
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "Game Output";
+              "node.description" = "Aggregates game sound";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "FL,FR";
+            };
+          }
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "Music Output";
+              "node.description" = "Aggregates music";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "FL,FR";
+            };
+          }
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "Fake Output";
+              "node.description" = "Sink for OBS monitoring when needed";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "FL,FR";
+            };
+          }
+        ];
+      };
       extraConfig.pipewire."92-low-latency" = {
         "context.properties" = {
           "default.clock.rate" = 48000;

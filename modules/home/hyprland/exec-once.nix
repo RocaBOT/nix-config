@@ -38,7 +38,7 @@ in {
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
         "qs -c overview" # Start quickshell-overview daemon
-        "librepods"
+        "uxplay -p"
       ]
       ++ noctaliaExec ++ waybarExec;
   };

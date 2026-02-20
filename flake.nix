@@ -33,7 +33,7 @@
     };
 
     librepods = {
-      url = "github:kavishdevar/librepods/linux/rust";
+      url = "github:RocaBOT/librepods/linux/rust";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
