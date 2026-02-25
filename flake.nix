@@ -62,6 +62,7 @@
           inherit profile; # keep using the let-bound profile for modules/scripts
         };
         modules = [
+          ./modules/core/overlays.nix
           ./profiles/${gpuProfile}
           nix-flatpak.nixosModules.nix-flatpak
         ];
