@@ -20,9 +20,7 @@
         #"de.schmidhuberj.tubefeeder"     #watch YT videos
 
         # Add other Flatpak IDs here, e.g., "org.mozilla.firefox"
-        "io.gitlab.librewolf-community" # Librewolf
         "eu.betterbird.Betterbird" # Betterbird
-        "org.keepassxc.KeePassXC" # KeePassXC
         "com.vysp3r.ProtonPlus" # Wine/Proton variants manager
         "io.github.randovania.Randovania" # Randomizer for metroid games, amongst others
         "com.discordapp.Discord" # official Discord client

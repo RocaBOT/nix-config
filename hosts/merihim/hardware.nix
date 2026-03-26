@@ -28,6 +28,12 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/mnt/Porygon" = {
+    device = "/dev/disk/by-uuid/B64D-F4AA";
+    fsType = "exfat";
+    options = ["fmask=0000" "dmask=0000" "iocharset=utf8"];
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/2cab1e1d-1402-463d-8a2c-c38cab9fbb8a";}
   ];

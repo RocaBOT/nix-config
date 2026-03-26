@@ -15,6 +15,7 @@ in {
         "tag +terminal, match:class ^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm)$"
         "tag +browser, match:class ^(Brave-browser(-beta|-dev|-unstable)?)$"
         "tag +browser, match:class ^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
+        "tag +browser, match:class ^([Ll]ibrewolf)$"
         "tag +browser, match:class ^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$"
         "tag +browser, match:class ^([Tt]horium-browser|[Cc]achy-browser)$"
         "tag +projects, match:class ^(codium|codium-url-handler|VSCodium)$"

@@ -34,7 +34,7 @@
   # This does NOT install your browser
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
-  browser = "io.gitlab.librewolf-community";
+  browser = "librewolf";
   emailClient = "eu.betterbird.Betterbird";
 
   terminal = "kitty"; # Set Default System Terminal

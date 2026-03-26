@@ -34,6 +34,11 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
+    librewolf = {
+      enable = true;
+      package = pkgs.librewolf;
+      nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -77,7 +82,7 @@ in {
       nwg-drawer # Application launcher for wayland
       nwg-dock-hyprland # Dock for hyprland
       nwg-menu # App menu for waybar
-      onefetch # provides zsaneyos build info on current system
+      onefetch # provides zaneyos build info on current system
       pandoc # format MD to HTML for cheatsheet parser
       pavucontrol # For Editing Audio Levels & Devices
       pciutils # Collection Of Tools For Inspecting PCI Devices
@@ -104,5 +109,10 @@ in {
       freetube # Youtube Frontend
       gparted # Partition Manager
       uxplay # Open Source AirPlay interface
+      rehex # Hexadecimal editor
+      pokefinder # pokemon rng assistant
+      vscodium # foss version of microslop's vscode IDE
+      keepassxc # offline password manager
+      firefoxpwa
     ];
 }
