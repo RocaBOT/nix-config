@@ -37,6 +37,5 @@ in {
     inputs.stylix.nixosModules.stylix
     ./cc3dsfs.nix
     ./librepods.nix
-    ./librewolf.nix
   ];
 }
