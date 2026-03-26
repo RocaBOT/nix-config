@@ -48,6 +48,5 @@ in {
     ./yazi
     ./zoxide.nix
     ./zsh
-    ./librewolf.nix
   ];
 }

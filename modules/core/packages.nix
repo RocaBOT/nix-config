@@ -34,11 +34,6 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
-    firefox = {
-      enable = true;
-      package = pkgs.librewolf;
-      nativeMessagingHosts.packages = [pkgs.firefoxpwa];
-  };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -113,6 +108,7 @@ in {
       pokefinder # pokemon rng assistant
       vscodium # foss version of microslop's vscode IDE
       keepassxc # offline password manager
+      #librewolf # hardened firefox
       firefoxpwa
     ];
 }
