@@ -108,7 +108,7 @@ in {
       pokefinder # pokemon rng assistant
       vscodium # foss version of microslop's vscode IDE
       keepassxc # offline password manager
-      #librewolf # hardened firefox
+      librewolf # hardened firefox
       firefoxpwa
     ];
 }
