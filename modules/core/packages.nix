@@ -34,6 +34,11 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
+    firefox = {
+      enable = true;
+      package = pkgs.librewolf;
+      nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+  };
   };
 
   nixpkgs.config.allowUnfree = true;
