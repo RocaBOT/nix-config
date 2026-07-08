@@ -4,6 +4,7 @@
     (vars)
     barChoice
     waybarChoice
+    tmuxEnable
     ;
   # Select bar module based on barChoice
   barModule =
@@ -49,5 +50,10 @@ in {
     ./zoxide.nix
     ./zsh
     ./librewolf.nix
-  ];
+  ]
+  ++ (
+    if tmuxEnable
+    then [./terminals/tmux.nix]
+    else[]
+  );
 }

@@ -9,6 +9,9 @@
   # SDDM background is set with stylixImage
   displayManager = "tui";
 
+  # Enable/disable bundled apps
+  tmuxEnable = true;
+
   # Python development tools are included by default
 
   # Hyprland Settings
@@ -18,8 +21,9 @@
   # You can configure multiple monitors.
   # Inside the quotes, create a new line for each monitor.
   extraMonitorSettings = "
-    monitor = DP-2,2560x1440@240,0x0,1,bitdepth,10
-    monitor = DP-1,2560x1440@240,2560x0,1,bitdepth,10
+    monitor = DP-1,2560x1440@240,0x0,1,bitdepth,10
+    monitor = DP-2,2560x1440@240,2560x0,1,bitdepth,10
+    monitor = DP-3,1920x1080@75,320x-1080,1
     ";
 
   # Bar/Shell Settings
@@ -39,9 +43,9 @@
 
   terminal = "kitty"; # Set Default System Terminal
 
-  keyboardLayout = "de";
-  keyboardVariant = "";
-  consoleKeyMap = "de";
+  keyboardLayout = "gb";
+  keyboardVariant = "intl";
+  consoleKeyMap = "uk";
 
   # For hybrid support (Intel/NVIDIA Prime or AMD/NVIDIA)
   intelID = "PCI:1:0:0";

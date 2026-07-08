@@ -37,6 +37,7 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowInsecurePredicate = x: builtins.elem x.pname [ "librewolf" "librewolf-unwrapped" ];
 
   environment.systemPackages = with pkgs;
     noctaliaPkgs
@@ -103,12 +104,11 @@ in {
       python3 # Python 3 programming language
       freetube # Youtube Frontend
       gparted # Partition Manager
-      uxplay # Open Source AirPlay interface
       rehex # Hexadecimal editor
-      pokefinder # pokemon rng assistant
       vscodium # foss version of microslop's vscode IDE
       keepassxc # offline password manager
       librewolf # hardened firefox
-      firefoxpwa
+      deezer-desktop
+      librepods
     ];
 }

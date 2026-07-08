@@ -48,12 +48,12 @@ in {
     };
     userDirs.enable = true;
     desktopEntries = {
-      librepods = {
-        name = "LibrePods";
-        genericName = "Audio Device";
-        exec = "librepods";
-        terminal = false;
-      };
+      # librepods = {
+      #   name = "LibrePods";
+      #   genericName = "Audio Device";
+      #   exec = "librepods";
+      #   terminal = false;
+      # };
     };
   };
 }

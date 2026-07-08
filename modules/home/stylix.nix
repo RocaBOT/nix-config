@@ -11,5 +11,6 @@ _: {
       enable = true;
       platform = "qtct";
     };
+    librewolf.profileNames = [ "librewolf-profile" ];
   };
 }

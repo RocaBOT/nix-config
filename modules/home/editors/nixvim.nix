@@ -69,10 +69,6 @@
       # Fuzzy finder
       telescope.enable = true;
 
-      # Treesitter for syntax/TS features
-      treesitter.enable = true;
-      treesitter-context.enable = false;
-
       # Project management
       project-nvim.enable = true;
 
@@ -101,7 +97,6 @@
       nvim-autopairs = {
         enable = true;
         settings = {
-          check_ts = true; # leverage Treesitter for smarter pairing
           enable_check_bracket_line = false;
           fast_wrap = {
             enable = true;
@@ -326,8 +321,8 @@
       lazygit
       nil
       hyprls
-      nodePackages.typescript-language-server
-      nodePackages.typescript
+      typescript-language-server
+      typescript
       vscode-langservers-extracted
       pyright
       lua-language-server
