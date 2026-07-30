@@ -7,9 +7,11 @@
 }: let
   vars = import ../../../hosts/${host}/variables.nix;
   extraMonitorSettings = vars.extraMonitorSettings or "";
+  animChoice = vars.animChoice or "";
   keyboardLayout = vars.keyboardLayout or "us";
   keyboardVariant = vars.keyboardVariant or "";
   stylixImage = vars.stylixImage or null;
+  toLua = lib.generators.toLua { };
 
   # Treat only known US-based variants as implying layout = "us".
   usVariants = ["dvorak" "colemak" "workman" "intl" "us-intl" "altgr-intl"];
@@ -42,7 +44,43 @@
 
   hyprKbLayout = layoutFromVariant;
   hyprKbVariant = variantFinal;
+
+  bindSettings = (import ./binds.nix { }).wayland.windowManager.hyprland.settings or { };
+  binddEntries = bindSettings.bindd or [ ];
+  bindmEntries = bindSettings.bindm or [ ];
+
+  envEntries = ((import ./env.nix { }).wayland.windowManager.hyprland.settings.env or [ ]);
+  execOnceEntries = ((import ./exec-once.nix { }).wayland.windowManager.hyprland.settings.exec-once or [ ]);
+  animationSettings = ((import animChoice { }).wayland.windowManager.hyprland.settings.animations or { });
+  windowRulesHyprlang = ((import ./windowrules.nix { }).wayland.windowManager.hyprland.extraConfig or "");
+
+  monitorLines = builtins.filter (line: line != "") (map lib.strings.trim (lib.splitString "\n" extraMonitorSettings));
+
+  nixLuaConfig = {
+    modifier = "SUPER";
+    keyboard = {
+      layout = hyprKbLayout;
+      variant =  hyprKbVariant;
+    };
+    theme = {
+      base01 = config.lib.stylix.colors.base01;
+      base08 = config.lib.stylix.colors.base08;
+      base0C = config.lib.stylix.colors.base0C;
+    };
+    env = envEntries;
+    execOnce = execOnceEntries;
+    bindd = binddEntries;
+    bindm = bindmEntries;
+    monitorLines = monitorLines;
+    animation = {
+      enabled = animationSettings.enabled or true;
+      bezier = animationSettings.bezier or [ ];
+      animation = animationSettings.animation or [ ];
+    };
+    windowRulesHyprlang = windowRulesHyprlang;
+  };
 in {
+
   home.packages = with pkgs; [
     awww
     grim
@@ -69,7 +107,7 @@ in {
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
+    configType = "lua";
     package = pkgs.hyprland;
     systemd = {
       enable = true;
@@ -79,127 +117,51 @@ in {
     xwayland = {
       enable = true;
     };
-    settings = {
-      "$modifier" = "SUPER";
-      input =
-        {
-          kb_layout = hyprKbLayout;
-          kb_options = [
-            "grp:alt_caps_toggle"
-            "caps:super"
-          ];
-          numlock_by_default = true;
-          repeat_delay = 300;
-          follow_mouse = 2;
-          float_switch_override_focus = 0;
-          sensitivity = 0;
-          touchpad = {
-            natural_scroll = true;
-            disable_while_typing = true;
-            scroll_factor = 0.8;
-          };
-        }
-        // lib.optionalAttrs (hyprKbVariant != "") {kb_variant = hyprKbVariant;};
-
-      gestures = {
-        gesture = ["3, horizontal, workspace"];
-        workspace_swipe_distance = 500;
-        workspace_swipe_invert = true;
-        workspace_swipe_min_speed_to_force = 30;
-        workspace_swipe_cancel_ratio = 0.5;
-        workspace_swipe_create_new = true;
-        workspace_swipe_forever = true;
+    extraConfig = ''
+      require("extra.vars")
+      require("extra.settings")
+      require("extra.monitors")
+      require("extra.env")
+      require("extra.animations")
+      require("extra.window_rules")
+      require("extra.startup")
+      require("extra.keybinds")
+    '';
+    extraLuaFiles = {
+      "extra.vars" = {
+        autoLoad = false;
+        content = ''
+          EXTRA = ${toLua nixLuaConfig}
+        '';
       };
-
-      general = {
-        layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 8;
-        border_size = 2;
-        resize_on_border = true;
-        "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
-        "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
+      "extra.settings" = {
+        autoLoad = false;
+        content = ./lua/settings.lua;
       };
-
-      misc = {
-        layers_hog_keyboard_focus = true;
-        initial_workspace_tracking = 0;
-        mouse_move_enables_dpms = true;
-        key_press_enables_dpms = true;
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        enable_swallow = false;
-        vrr = 1; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
-        # Screen flashing to black momentarily or going black when app is fullscreen
-        # Try setting vrr to 0
-
-        #  Application not responding (ANR) settings
-        enable_anr_dialog = true;
-        anr_missed_pings = 15;
+      "extra.monitors" = {
+        autoLoad = false;
+        content = ./lua/monitors.lua;
       };
-
-      dwindle = {
-        preserve_split = true;
-        force_split = 2;
+      "extra.env" = {
+        autoLoad = false;
+        content = ./lua/env.lua;
       };
-
-      decoration = {
-        rounding = 10;
-        blur = {
-          enabled = true;
-          size = 5;
-          passes = 3;
-          ignore_opacity = false;
-          new_optimizations = true;
-        };
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
-        };
+      "extra.animations" = {
+        autoLoad = false;
+        content = ./lua/animations.lua;
       };
-
-      ecosystem = {
-        no_donation_nag = true;
-        no_update_news = false;
+      "extra.window_rules" = {
+        autoLoad = false;
+        content = ./lua/window_rules.lua;
       };
-
-      cursor = {
-        sync_gsettings_theme = true;
-        no_hardware_cursors = 2; # change to 1 if want to disable
-        enable_hyprcursor = false;
-        warp_on_change_workspace = 2;
-        no_warps = true;
+      "extra.startup" = {
+        autoLoad = false;
+        content = ./lua/startup.lua;
       };
-
-      render = {
-        # Disabling as no longer supported
-        #explicit_sync = 1; # Change to 1 to disable
-        #explicit_sync_kms = 1;
-        direct_scanout = 0;
-        cm_enabled = 1;
-        cm_auto_hdr = 1;
-      };
-
-      master = {
-        new_status = "master";
-        new_on_top = 1;
-        mfact = 0.5;
-      };
-
-      # Ensure Xwayland windows render at integer scale; compositor scales them
-      xwayland = {
-        force_zero_scaling = true;
+      "extra.keybinds" = {
+        autoLoad = false;
+        content = ./lua/keybinds.lua;
       };
     };
-
-    extraConfig = "
-      monitor=eDP-1,1920x1080@60,auto,1
-      ${extraMonitorSettings}
-      # To enable blur on waybar uncomment the line below
-      # Thanks to SchotjeChrisman
-      #layerrule = blur,waybar
-    ";
   };
 }

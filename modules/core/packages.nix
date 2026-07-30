@@ -101,7 +101,17 @@ in {
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube
+      lua
+      luajit
+      luarocks
+      lua-languge-server
+      stylua
+      luaformatter
+      selene
+      lua54Packages.luacheck
+      lua54Packages.busted
       python3 # Python 3 programming language
+      matugen
       freetube # Youtube Frontend
       gparted # Partition Manager
       rehex # Hexadecimal editor

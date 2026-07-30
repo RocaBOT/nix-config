@@ -21,7 +21,7 @@
       "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia msg panel-toggle wallpaper"
       "$modifier,X, Noctalia Power Menu, exec, noctalia msg panel-toggle session"
       "$modifier,C, Noctalia Control Center, exec, noctalia msg panel-toggle control-center"
-      "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia psg screenshot-region"
+      "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia msg screenshot-region"
       "$modifier SHIFT,R, Restart Noctalia shell, exec, restart.noctalia"
     ]
     else [];
