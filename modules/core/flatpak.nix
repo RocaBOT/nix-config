@@ -23,7 +23,7 @@
         "eu.betterbird.Betterbird" # Betterbird
         "com.vysp3r.ProtonPlus" # Wine/Proton variants manager
         "io.github.randovania.Randovania" # Randomizer for metroid games, amongst others
-        "com.discordapp.Discord" # official Discord client
+        # "com.discordapp.Discord" # official Discord client - sometimes broken because this is trash
       ];
 
       # Optional: Automatically update Flatpaks when you run nixos-rebuild switch

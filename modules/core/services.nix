@@ -10,7 +10,7 @@
       enable = true; # Enable SSH
       settings = {
         PermitRootLogin = "no"; # Prevent root from SSH login
-        PasswordAuthentication = true; #Users can SSH using kb and password
+        PasswordAuthentication = false; #Users can SSH using kb and password
         KbdInteractiveAuthentication = true;
       };
       ports = [22];

@@ -90,8 +90,6 @@ in {
       rhythmbox # audio player
       ripgrep # Improved Grep
       socat # Needed For Screenshots
-      thunar-archive-plugin # open archives in Thunar
-      thunar-volman # Volume manager for Thunar
       unrar # Tool For Handling .rar Files
       unzip # Tool For Handling .zip Files
       usbutils # Good Tools For USB Devices
@@ -104,7 +102,7 @@ in {
       lua
       luajit
       luarocks
-      lua-languge-server
+      lua-language-server
       stylua
       luaformatter
       selene
@@ -120,5 +118,6 @@ in {
       librewolf # hardened firefox
       deezer-desktop
       librepods
+      discord
     ];
 }

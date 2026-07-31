@@ -37,6 +37,11 @@
     #   url = "https://github.com/NixOS/nixpkgs/commit/4fb676193ca9cc8662c2cb87f7e4339360472b18.diff?full_index=1";
     #   flake = false;
     # };
+
+    nixpkgs-patch-discord-krisp = {
+      url = "https://github.com/NixOS/nixpkgs/commit/64a1fc0ed43e9f770f1401dd5d4dd57c12ca001a.diff?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {

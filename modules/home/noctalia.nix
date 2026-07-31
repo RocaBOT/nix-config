@@ -7,7 +7,10 @@
   system = pkgs.stdenv.hostPlatform.system;
   noctaliaPkg = inputs.noctalia.packages.${system}.default;
 in {
-  home.packages = [noctaliaPkg];
+  home.packages = [
+    noctaliaPkg
+    pkgs.gpu-screen-recorder
+  ];
 
   # Ensure declarative v5 config directory exists
   home.activation.emsureNoctaliaConfigDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -18,4 +21,6 @@ in {
       $DRY_RUN_CMD mkdir -p "$DEST"
     fi
   '';
+  };
+
 }

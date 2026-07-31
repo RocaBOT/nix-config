@@ -9,11 +9,7 @@
   noctaliaExec =
     if barChoice == "noctalia"
     then [
-      "killall -q waybar"
-      "pkill waybar"
-      "killall -q swaync"
-      "pkill swaync"
-      "noctalia"
+      "start.noctalia"
     ]
     else [];
   # Waybar-specific startup commands
@@ -23,6 +19,8 @@
       "killall -q awww;sleep .5 && awww-daemon"
       "killall -q waybar;sleep .5 && waybar"
       "killall -q swaync;sleep .5 && swaync"
+      "systemctl --user stop noctalia || true"
+      "pkill -x noctalia || true"
       "nm-applet --indicator"
       # Delayed-only restore so Stylix finishes first, then user's wallpaper wins with a single change
       "sh -lc 'sleep 2 && (qs-wallpapers-restore || waypaper --wallpaper ${stylixImage} --backend awww) >/dev/null 2>&1 || true'"

@@ -10,6 +10,7 @@
     (import ./hm-find.nix {inherit pkgs;})
     (import ./keybinds.nix {inherit pkgs;})
     (import ./qs-keybinds.nix {inherit pkgs;})
+    (import ./noctalia-msg.nix {inherit pkgs;})
     (import ./note.nix {inherit pkgs;})
     (import ./note-from-clipboard.nix {inherit pkgs;})
     (import ./nvidia-offload.nix {inherit pkgs;})
@@ -39,6 +40,7 @@
     (import ./launch-nwg-menu.nix {inherit pkgs;})
     (import ./hyprland-dock.nix {inherit pkgs;})
     (import ./restart.noctalia.nix {inherit pkgs;})
+    (import ./start.noctalia.nix {inherit pkgs;})
     (import ./zcli.nix {
       inherit pkgs profile;
       backupFiles = [

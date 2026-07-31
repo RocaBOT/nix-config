@@ -45,12 +45,12 @@
   hyprKbLayout = layoutFromVariant;
   hyprKbVariant = variantFinal;
 
-  bindSettings = (import ./binds.nix { }).wayland.windowManager.hyprland.settings or { };
+  bindSettings = (import ./binds.nix { inherit host; }).wayland.windowManager.hyprland.settings or { };
   binddEntries = bindSettings.bindd or [ ];
   bindmEntries = bindSettings.bindm or [ ];
 
   envEntries = ((import ./env.nix { }).wayland.windowManager.hyprland.settings.env or [ ]);
-  execOnceEntries = ((import ./exec-once.nix { }).wayland.windowManager.hyprland.settings.exec-once or [ ]);
+  execOnceEntries = ((import ./exec-once.nix { inherit host; }).wayland.windowManager.hyprland.settings.exec-once or [ ]);
   animationSettings = ((import animChoice { }).wayland.windowManager.hyprland.settings.animations or { });
   windowRulesHyprlang = ((import ./windowrules.nix { }).wayland.windowManager.hyprland.extraConfig or "");
 
